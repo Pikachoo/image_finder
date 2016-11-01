@@ -1,0 +1,10 @@
+/.idea
+/config/database.yml
+/config/secrets.yml
+/.bundle
+/log/*
+!/log/.keep
+/tmp
+/rsa_keys/*
+!/rsa_keys/.keep
+/log

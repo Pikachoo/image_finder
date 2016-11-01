@@ -1,0 +1,18 @@
+= form_for @image, url: new_image_path, html: {class: 'login-form mt-lg'} do |f|
+  .form-group
+    label.control-label.visible-ie8.visible-ie9 Picture to upload
+    = f.file_field :url, class: 'form-control', autofocus: true
+
+.well.bs-component
+  form.form-horizontal
+    fieldset
+      legend Legend
+      .form-group
+        label.col-lg-2.control-label for="inputEmail"  Email
+        .col-lg-10
+          input#inputEmail.form-control placeholder="Email" type="text" /
+
+      .form-group
+        .col-lg-10.col-lg-offset-2
+          button.btn.btn-default type="reset"  Cancel
+          button.btn.btn-primary type="submit"  Submit
