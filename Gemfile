@@ -12,11 +12,26 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
+# image store
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+gem "mini_magick"
+gem 'dropzonejs-rails'
+
+# style
 gem 'slim'
-gem 'bootstrap-sass'
-gem 'bootswatch-rails'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'semantic-ui-sass'
+
+gem 'devise'
+
+# API
+gem 'grape'
+gem 'roar'
+gem 'multi_json'
+gem 'grape-roar'
+gem 'grape-swagger'
+gem 'grape-kaminari'
+gem 'grape-swagger-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

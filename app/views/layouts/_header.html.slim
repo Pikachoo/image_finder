@@ -1,10 +1,15 @@
-#top-menu.ui.top.fixed.menu
-  a.item.mobile-button
-    ' Menu
-    = link_to 'Fiim', root_path, class: 'item'
-
-  .right.mobile.menu
-    .item
-      a.ui.button Log in
-    .item
-      a.ui.primary.button Sign Up
+.ui.segment.top.attached.inverted
+  .ui.menu.secondary
+    a.ui.item.mobile-button
+      i.align.justify.icon.inverted
+    a.ui.button.teal.basic.inverted href= root_path
+      | Home
+    .right.menu
+      a.ui.inverted.orange.basic.button href=new_image_path Upload
+      .ui.search.right
+        .ui.icon.input
+          input.prompt placeholder=("Tags...") type="text" /
+          i.search.icon
+        .results
+      a.ui.button.blue.basic.inverted
+        | Logout
