@@ -3,4 +3,6 @@ class Image < ActiveRecord::Base
 
   scope :valid_file, -> {where.not(file: nil )}
 
+  has_many :tags
+
 end
