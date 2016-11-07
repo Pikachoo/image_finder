@@ -4,8 +4,3 @@
     | Image
   .image.content
     = render partial: 'images/blocks/preview_item', locals: {image: image, img_url: image.file.url}
-
-javascript:
-  $('.ui.modal')
-    .modal('show')
-  ;

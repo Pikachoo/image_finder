@@ -20,10 +20,10 @@
   var tag_part = 'tags/';
   var image_part = 'images/';
 
-  $('#left-menu')
-      .sidebar({context: $('#container')})
-      .sidebar('setting', {transition: 'overlay'})
-      .sidebar('attach events', '.mobile-button');
+//  $('#left-menu')
+//      .sidebar({context: $('#container')})
+//      .sidebar('setting', {transition: 'overlay'})
+//      .sidebar('attach events', '.mobile-button');
 
 
   $('.ui.search')
@@ -39,6 +39,11 @@
 
       })
   ;
+
+      $('.ui.modal')
+          .modal('show')
+      ;
+
 
 </script>
 </body>
