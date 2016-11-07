@@ -1,7 +1,8 @@
 class Image < ActiveRecord::Base
   mount_uploader :file, ImageUploader
 
-  has_and_belongs_to_many :tags
+  has_many :image_tags
+  has_many :tags, through: :image_tags
 
   scope :valid_file, -> {where.not(file: nil )}
   scope :last_items, -> (count){ includes(:tags).valid_file.limit(count).order(created_at: :desc)}

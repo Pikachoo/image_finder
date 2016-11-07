@@ -7,7 +7,7 @@ class ImagesController < ApplicationController
   end
 
   def create
-    Image.create(file: params[:file])
+    Images::CreateService.new.execute(params[:file])
   end
 
   def index
