@@ -1,6 +1,5 @@
-.row
-  .ui.segment
-    - image.tags.each do |tag|
-      a href =tag_images_path(tag.id)
-        | #
-        = tag.name
+.ui.segment
+  - image.tags.each do |tag|
+    a href =tag_images_path(tag.id)
+      | #
+      = tag.name

@@ -40,9 +40,18 @@
       })
   ;
 
-      $('.ui.modal')
-          .modal('show')
-      ;
+  if ($(' .modal_image')) {
+    $('.ui.modal')
+        .modal('show')
+        .modal({'closable':	'true'})
+    ;
+  }
+
+  $('.close_modal').click(function () {
+    $('.ui.modal').modal('hide');
+    $($('.ui.modal')[0].parentElement).text('')
+
+  });
 
 
 </script>

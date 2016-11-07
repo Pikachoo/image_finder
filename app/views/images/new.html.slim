@@ -15,8 +15,8 @@
                 | not
               | actually uploaded.)
         - if @show_image
-          = render partial: 'images/show', locals: {image: @show_image}
-    .three.wide.column
-      / TODO: popular view
-      = render partial: 'images/blocks/previews_side', locals: {images: @popular_images, title: 'Popular'}
+          .modal_image
+            = render partial: 'images/show', locals: {image: @show_image}
 
+    .three.wide.column
+      = render partial: 'images/blocks/previews_side', locals: {images: @popular_images, title: 'Popular'}
