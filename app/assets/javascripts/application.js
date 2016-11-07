@@ -3,5 +3,5 @@
 //= require turbolinks
 //= require jquery.slimscroll.min
 //= require semantic
-//= require dropzone
+//= require plugins/dropzone
 //= require_tree .

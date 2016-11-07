@@ -16,6 +16,7 @@ module SecurityImage
       end
 
       mount SecurityImage::V1::Tags
+      mount SecurityImage::V1::Images
     end
   end
 end

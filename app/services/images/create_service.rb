@@ -28,6 +28,7 @@ module Images
         end
       end
 
+      image
     end
   end
 end

@@ -10,7 +10,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
   end
 
-  def get_show_image(id)
-    id ? @show_image = Image.find(id) : nil
-  end
 end

@@ -4,19 +4,37 @@
       = render partial: 'images/blocks/previews_side', locals: {images: @last_images, title: 'Last'}
     .ten.wide.column
       .ui.segment
-        = form_for @image, url: {action: "create"}, html: {class: 'ui form dropzone'} do |f|
-          .fallback
-          .dz-message.needsclick
-            | Drop files here or click to upload.
-            br
-            span.note.needsclick
-              ' (This is just a demo dropzone. Selected files are
-              strong
-                | not
-              | actually uploaded.)
-        - if @show_image
-          .modal_image
-            = render partial: 'images/show', locals: {image: @show_image}
+        /#image_dropzone
+        = form_for @image, url: {action: "create"}, html: {class: 'ui form dropzone ', id: 'image_dropzone'} do |f|
+        /  .fallback
+        /  .dz-message.needsclick
+        /    | Drop files here or click to upload.
+        /    br
+        /    span.note.needsclick
+        /      ' (This is just a demo dropzone. Selected files are
+        /      strong
+        /        | not
+        /      | actually uploaded.)
+        /  .dz-preview.dz-file-preview
+        /    .dz-details
+        /      .name
+        /        lsls
 
     .three.wide.column
       = render partial: 'images/blocks/previews_side', locals: {images: @popular_images, title: 'Popular'}
+javascript:
+    var myDropzone = new Dropzone("#image_dropzone", { // Make the whole body a dropzone
+      init: function() {
+        this.on ('success', function (file, responese) {
+          var share_link = '<div  class="dz-open">'+
+                '<a href = "javascript:show_image('+responese.id+');" >' +
+                '<span  data-dz-name>open</span></a></div>';
+
+          $(file.previewElement.getElementsByClassName('dz-details')[0])
+              .append(share_link)
+
+        })
+      }
+    });
+
+

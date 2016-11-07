@@ -10,48 +10,37 @@
   <div class="pusher">
     <%= yield %>
   </div>
-</div>
-<div id="modal_image">
+  <div id="modal_image">
 
+  </div>
 </div>
-
 <script>
-  var local_url='http://localhost:3000/';
+  var local_url = 'http://localhost:3000/';
   var tag_part = 'tags/';
   var image_part = 'images/';
 
-//  $('#left-menu')
-//      .sidebar({context: $('#container')})
-//      .sidebar('setting', {transition: 'overlay'})
-//      .sidebar('attach events', '.mobile-button');
+  //  $('#left-menu')
+  //      .sidebar({context: $('#container')})
+  //      .sidebar('setting', {transition: 'overlay'})
+  //      .sidebar('attach events', '.mobile-button');
 
+  $(document).ready(function () {
 
-  $('.ui.search')
-      .search({
-        apiSettings: {
-          url: local_url + 'api/v1/tags?search_name={query}'
-        },
-        fields: {
-          results : 'tags',
-          title   : 'name',
-          url: 'images_html_url'
-        }
+    $('.ui.search')
+        .search({
+          apiSettings: {
+            url: local_url + 'api/v1/tags?search_name={query}'
+          },
+          fields: {
+            results: 'tags',
+            title: 'name',
+            url: 'images_html_url'
+          }
 
-      })
-  ;
-
-  if ($(' .modal_image')) {
-    $('.ui.modal')
-        .modal('show')
-        .modal({'closable':	'true'})
+        })
     ;
-  }
 
-  $('.close_modal').click(function () {
-    $('.ui.modal').modal('hide');
-    $($('.ui.modal')[0].parentElement).text('')
-
-  });
+  })
 
 
 </script>
