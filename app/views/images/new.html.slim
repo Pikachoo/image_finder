@@ -1,7 +1,7 @@
 .ui.grid
   .row
     .three.wide.column
-      = render 'images/last'
+      = render partial: 'images/blocks/previews_side', locals: {images: @last_images, title: 'Last'}
     .ten.wide.column
       .ui.segment
         = form_for @image, url: {action: "create"}, html: {class: 'ui form dropzone'} do |f|
@@ -16,4 +16,6 @@
               | actually uploaded.)
     .three.wide.column
       / TODO: popular view
-      = render 'images/last'
+      = render partial: 'images/blocks/previews_side', locals: {images: @last_images, title: 'Popular'}
+- if @show_image
+  = render partial: 'images/show', locals: {image: @show_image}

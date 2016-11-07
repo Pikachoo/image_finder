@@ -1,0 +1,7 @@
+- image_grid_row_size = 4
+.ui.grid
+  - images.each_with_index  do |image, index|
+    - if index%image_grid_row_size == 0
+      .row
+    .four.wide.column
+      = render partial: 'images/blocks/preview_item', locals: {image: image, img_url: image.file.thumb.url}

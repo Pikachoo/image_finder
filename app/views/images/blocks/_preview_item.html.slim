@@ -1,0 +1,5 @@
+.ui.segment
+  a href= image_path(image.id)
+    .ui.image
+      img src= img_url id=image.id
+    = render partial: 'images/tags', locals: {image: image}

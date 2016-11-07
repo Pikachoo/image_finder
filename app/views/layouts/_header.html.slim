@@ -1,15 +1,13 @@
 .ui.segment.top.attached.inverted
   .ui.menu.secondary
-    a.ui.item.mobile-button
-      i.align.justify.icon.inverted
+    /a.ui.item.mobile-button
+    /  i.align.justify.icon.inverted
     a.ui.button.teal.basic.inverted href= root_path
       | Home
+    a.ui.inverted.orange.basic.button href= new_image_path Upload
     .right.menu
-      a.ui.inverted.orange.basic.button href=new_image_path Upload
       .ui.search.right
         .ui.icon.input
           input.prompt placeholder=("Tags...") type="text" /
           i.search.icon
-        .results
-      a.ui.button.blue.basic.inverted
-        | Logout
+
