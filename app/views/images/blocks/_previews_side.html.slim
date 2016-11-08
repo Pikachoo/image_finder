@@ -1,8 +1,6 @@
+h4.ui.horizontal.divider.header.image-sidebar-header.medium
+  = title
 .last_images
-  .row
-    .ui.segment
-      .ui.large.centered.header
-        = title
   - images.each do |image|
     .row
       = render partial: 'images/blocks/preview_item', locals: {image: image, img_url: image.file.thumb.url}

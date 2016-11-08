@@ -12,6 +12,7 @@ class ImagesController < ApplicationController
   end
 
   def index
+    @tag = Tag.find(params[:tag_id])
     @images = Image.by_tag(params[:tag_id])
   end
 

@@ -5,5 +5,5 @@
       i.arrow.circle.down.icon.blue
   .ui.image onclick= 'show_image(#{image.id});'
     img src= img_url id=image.id
-    - if image.tags.count > 0
-      = render partial: 'images/tags', locals: {image: image}
+  - if image.tags.count > 0
+    = render partial: 'images/tags', locals: {image: image}

@@ -20,7 +20,7 @@ function show_image(id){
         if (tags.length > 0){
             tags_html = '<div class="ui segment">';
             $.each(tags, function (index, value) {
-                tags_html = tags_html +  '<a href="/tags/' + value.id + '/images/" > ' + value.name + '</a>'
+                tags_html = tags_html +  '<a href="/tags/' + value.id + '/images/" > \#' + value.name + '</a>'
             });
             tags_html = tags_html + '</div>';
         }

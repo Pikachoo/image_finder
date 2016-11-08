@@ -15,7 +15,7 @@ module Images
       c = Curl::Easy.new(url)
       c.multipart_form_post = true
       c.http_post(Curl::PostField.file('images_fild', image.file.thumb.path))
-
+      
       response_hash = ActiveSupport::JSON.decode(c.body_str)
 
       response_hash["images"].each do |item|
@@ -26,6 +26,10 @@ module Images
             ImageTag.create(tag: tag, image: image, score: tag_item["score"])
           end
         end
+      end
+
+      if image.tags.size == 0
+        ImageTag.create(tag: Tag.default, image: image, score: 1)
       end
 
       image

@@ -2,6 +2,9 @@
   .row
     .three.wide.column
     .ten.wide.column
+      h4.ui.horizontal.divider.header.image-sidebar-header.medium
+         = '#' + @tag.name.capitalize
+
       = render partial: 'images/blocks/previews', locals: {images: @images}
     .three.wide.column
 

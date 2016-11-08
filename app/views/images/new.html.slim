@@ -3,6 +3,9 @@
     .three.wide.column
       = render partial: 'images/blocks/previews_side', locals: {images: @last_images, title: 'Last'}
     .ten.wide.column
+      h4.ui.horizontal.divider.header.image-sidebar-header.large
+        i.cloud.upload.icon
+        | Drop your images here
       .ui.segment
         = form_for @image, url: {action: "create"}, html: {class: 'ui form dropzone ', id: 'image_dropzone'} do |f|
     .three.wide.column
