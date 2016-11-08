@@ -15,6 +15,9 @@ class ImagesController < ApplicationController
     @images = Image.by_tag(params[:tag_id])
   end
 
+  def show
+    @image = Image.includes(:tags).find(params[:id])
+  end
   private
 
   def image_params

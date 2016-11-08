@@ -2,6 +2,7 @@ function show_image(id){
     var image;
     var tags;
     var url = '/api/v1/images?id=' + id;
+    var share_url = window.location.host + '/images/' +id;
     $.ajax({
         url: url,
         success: function (data, status) {
@@ -14,7 +15,6 @@ function show_image(id){
     $.when( $.ajax(url ) ).then(function( data, textStatus, jqXHR ) {
         var tags_html = '';
         var html = '';
-        var share_link = '';
         $('#modal_image').text(html);
 
         if (tags.length > 0){
@@ -25,29 +25,34 @@ function show_image(id){
             tags_html = tags_html + '</div>';
         }
 
-        share_link = '<div class="ui segment"><p>Share link: <a> ' + window.location.host + image.file.url + '</a></p>'
 
-
+        var title_html =   '<div class="ui segment">'+
+                                '<div class="ui image-header centered">'+
+                                    '<a>' + share_url + '</a>'+
+                                    '<i class="arrow circle down icon blue"/>'+
+                                '</div>'+
+                           '</div>';
+        var image_html = '<a href="/images/' + id + '"> ' +
+                        '<div class="ui image" onclick="show_image(2);"> ' +
+                            '<img src="' + image.file.url + '" id="'+ id +'"> ' +
+                        '</div> ' +
+                    '</a>';
 
         var html = '<div class="ui modal">' +
-            '<i class="close_modal close icon"></i>' +
-            '<div class="header">' +
-            'Image' +
-            '</div> ' +
-            '<div class="image content"> ' +
-            '<div class="ui segment"> ' +
-            '<a href="/images/' + id + '"> ' +
-            '<div class="ui image" onclick="show_image(2);"> ' +
-            '<img src="' + image.file.url + '" id="'+ id +'"> ' +
-            '</div> ' +
-            '</a>';
+                        '<i class="close_modal close icon"></i>' +
+                        '<div class="header centered">' +
+                           'Image' +
+                        '</div> ' +
+                        '<div class="image content"> ' +
+                            '<div class="ui segment"> ' +
+                                title_html + image_html + tags_html +
+                            '</div> ';
 
 
-        html = html + tags_html + share_link +  '</div> ' +
-                                '</div> ' +
-                                '</div>';
+        html = html + '</div> ' +  '</div>';
 
         $('#modal_image').append(html);
+
 
 
         // init modal window
@@ -56,14 +61,24 @@ function show_image(id){
                 .modal('show')
                 .modal({'closable': 'true'})
             ;
+            fontSize();
+
+            $('.close_modal').click(function () {
+                $('.ui.modal').modal('hide');
+                $($('.ui.modal')[0].parentElement).text('')
+
+            });
         });
 
-        $('.close_modal').click(function () {
-            $('.ui.modal').modal('hide');
-            $($('.ui.modal')[0].parentElement).text('')
 
-        });
+
     });
 
-
 }
+
+function fontSize() {
+    $.each($(".image-header"), function (index, item) {
+        var fontSize = $(item.parentElement).innerWidth()* 0.05; // 10% of container width
+        $(item).css('font-size', fontSize);
+    });
+};

@@ -1,0 +1,7 @@
+.ui.grid
+  .row
+    .three.wide.column
+    .ten.wide.column
+      .image-container
+        = render partial: 'images/blocks/preview_item', locals: {image: @image, img_url: @image.file.url}
+    .three.wide.column
