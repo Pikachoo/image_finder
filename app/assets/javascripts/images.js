@@ -78,7 +78,7 @@ function show_image(id){
 
 function fontSize() {
     $.each($(".image-header"), function (index, item) {
-        var fontSize = $(item.parentElement).innerWidth()* 0.05; // 10% of container width
+        var fontSize = $(item.parentElement).innerWidth()* 0.03; // 10% of container width
         $(item).css('font-size', fontSize);
     });
 };

@@ -1,8 +1,11 @@
 .ui.segment
-  .ui.segment
-    .ui.image-header.centered
-      a = image_url(image.id)
-      i.arrow.circle.down.icon.blue
+  h4.ui.horizontal.divider.header.image-sidebar-header.medium.image-header
+    = image_url(image.id)
+    i.arrow.circle.down.icon.blue
+  /.ui.segment
+  /  .ui.image-header.centered
+  /    a = image_url(image.id)
+  /    i.arrow.circle.down.icon.blue
   .ui.image onclick= 'show_image(#{image.id});'
     img src= img_url id=image.id
   - if image.tags.count > 0
